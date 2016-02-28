@@ -14,6 +14,7 @@ end
 def valid_isbn?(any_string)
 	 any_string.delete!("-")
 	 any_string.delete!(" ")
+	 contains_X(any_string)
 	if correct_isbn_length?(any_string) == true && contains_non_digits?(any_string) == false
 		true
 	else
@@ -28,5 +29,25 @@ def contains_non_digits?(any_string)
 	else
 		false
 	end
-
 end
+
+def contains_X (any_string)
+	if any_string.include?("x") || any_string.include?("X")
+		true
+	else
+		false
+	end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+

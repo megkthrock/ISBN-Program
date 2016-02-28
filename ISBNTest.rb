@@ -26,6 +26,11 @@ class Test_ISBN_Number <Minitest::Test
 
 	def test_13digit_isbn_contains_only_numbers
 		assert_equal(false, valid_isbn?("978-0-471-48648-a"))
+		assert_equal(true, valid_isbn?("978-0-471-48648-0"))
+	end
+
+	def test_10digits_cointains_X
+		assert_equal(true, contains_X("047195869x"))
 	end
 end
 
