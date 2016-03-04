@@ -33,16 +33,15 @@ end
 
 def contains_X(isbn)
 	isbn_number_array = isbn.split(//,)
-	if isbn.include?("x") || isbn.include?("X")
-		isbn[9] == 10
-		true
-	else
-		false
+	if isbn_number_array[9] == "x" || isbn_number_array[9] == "X"
+		isbn_number_array[9] = 10
 	end
+	isbn_number_array
 end
 
-def check_digit_10_is_valid (isbn)
+def check_digit_10_is_valid(isbn)
 	array = []
+	isbn = contains_X(isbn)
 	isbn.each do |value|
 		array.push value.to_i
 	end
@@ -57,7 +56,6 @@ def check_digit_10_is_valid (isbn)
 	else
 		false
 	end
-	check_digit == array[9]
 
 end
 

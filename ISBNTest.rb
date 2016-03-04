@@ -30,11 +30,12 @@ class Test_ISBN_Number <Minitest::Test
 	end
 
 	def test_10digits_cointains_X_as_last_digit
-		assert_equal(true, contains_X("047195869x"))
+		num = contains_X("047195869x")
+		assert_equal(10, num[9])
 	end
 
 	def test_that_10digits_is_valid
-		assert_equal(false, check_digit_10_is_valid(["1","2","8","5","1","6","5","9","0","X"]))
+		assert_equal(true, check_digit_10_is_valid("128516590X"))
 	end
 end
 
