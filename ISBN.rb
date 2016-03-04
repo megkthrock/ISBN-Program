@@ -43,7 +43,7 @@ def check_digit_10_is_valid(isbn)
 	array = []
 	isbn = contains_X(isbn)
 	isbn.each do |value|
-		array.push value.to_i
+		array << value.to_i
 	end
 	sum = 0 
 	array.each.with_index do |value, index|
@@ -56,12 +56,32 @@ def check_digit_10_is_valid(isbn)
 	else
 		false
 	end
-
 end
 
+def check_digit_13_is_valid(isbn)
+	array = []
+	isbn = isbn.split("")
+		isbn.each do |value|
+		array << value.to_i
+		end
+	sum = 0 
+	check_digit = 0
 
-
-
+		array.each_with_index do |value, index|
+			break if index == 12
+			if index % 2 == 0
+				sum += value * 1
+			else
+				sum += value * 3
+			end
+		end
+	sum = sum % 10
+	check_digit =(10 - sum)
+		if isbn[12] == 10
+		check_digit = 0		
+		end
+	array[12] == check_digit
+end
 
 
 
