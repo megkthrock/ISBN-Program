@@ -42,6 +42,8 @@ class Test_ISBN_Number <Minitest::Test
 		assert_equal(true, check_digit_13_is_valid("9780470059029"))
 		assert_equal(true, check_digit_13_is_valid("9780078025419"))
 		assert_equal(false, check_digit_13_is_valid("1234567891234"))
+		assert_equal(false, check_digit_13_is_valid("1234535678347"))
+		assert_equal(true, check_digit_13_is_valid("9781429261784"))
 	end
 end
 

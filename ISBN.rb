@@ -76,7 +76,7 @@ def check_digit_13_is_valid(isbn)
 			end
 		end
 	sum = sum % 10
-	check_digit =(10 - sum)
+	check_digit =(10 - sum)%10
 		if isbn[12] == 10
 		check_digit = 0		
 		end
