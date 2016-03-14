@@ -8,3 +8,9 @@ def valid_isbn_length?(isbn)
 		false
 	end
 end
+
+def eliminate_invalid_characters(isbn)
+	isbn.delete!(" ")
+	isbn.delete!("-")
+	isbn
+end 
