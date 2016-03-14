@@ -16,3 +16,27 @@ def remove_X_if_it_is_the_last_digit(isbn)
 		isbn
 	end
 end
+
+def add_X_back_to_isbn(isbn)
+	if isbn.length == 9
+		isbn.push("X")
+	end
+	isbn = isbn.join
+end
+
+def isbn_contains_all_digits?(isbn)
+	if isbn =~ /\D/
+		false
+	else
+		true
+	end
+end
+
+
+
+
+
+
+
+
+
