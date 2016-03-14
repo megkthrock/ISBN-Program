@@ -54,6 +54,30 @@ def isbn_10_check_digit_matches_sum?(isbn)
 	end
 end
 
+def sum_of_13_digit_isbn(isbn)
+	array = isbn.split("")
+	sum = 0
+	array.each_with_index do |value, position|
+		break if position == 12
+		if position % 2 == 0
+			sum += value.to_i
+		else 
+			sum += value.to_i * 3
+		end
+	end
+	sum
+end
+
+def isbn_13_check_digit_matches_sum?(isbn)
+	array = isbn.split("")
+	sum = sum_of_13_digit_isbn(isbn)
+	sum = sum % 10
+	sum = 10 - sum
+	sum = sum % 10
+	isbn[12].to_i == sum
+end
+
+
 
 
 
