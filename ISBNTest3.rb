@@ -3,13 +3,11 @@ require_relative "ISBN3.rb"
 
 class Test_ISBN_Number <Minitest::Test
 
-	def test_for_valid_length_of_isbn
-		assert_equal(true, valid_isbn_length?("877195869x"))
-		assert_equal(false, valid_isbn_length?("12345"))
-		assert_equal(true, valid_isbn_length?("1232343456546"))
-	end
-
 	def test_that_invalid_characters_are_removed
 		assert_equal("12345678", eliminate_invalid_characters("123 4 5-67-8"))
+	end
+
+	def test_that_X_is_removed_from_last_position_10_digits
+		assert_equal("877195869", remove_X_if_it_is_the_last_digit("877195869x"))
 	end
 end
