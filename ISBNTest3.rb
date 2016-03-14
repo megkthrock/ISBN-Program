@@ -21,4 +21,9 @@ class Test_ISBN_Number <Minitest::Test
 		assert_equal(3, sum_of_10_digit_isbn("123"))
 		assert_equal(8, sum_of_10_digit_isbn("457126"))
 	end
+
+	def test_isbn_10_digit_check_digit_matches_sum?
+		assert_equal(true, isbn_10_check_digit_matches_sum?("0471958697"))
+		assert_equal(false, isbn_10_check_digit_matches_sum?("123456568"))
+	end
 end

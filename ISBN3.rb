@@ -42,6 +42,18 @@ def sum_of_10_digit_isbn(isbn)
 	sum = sum % 11
 end 
 
+def isbn_10_check_digit_matches_sum?(isbn)
+	array = isbn.split("")
+	sum = sum_of_10_digit_isbn(isbn)
+	if sum == 10 && array[9] == "X" || array[9] == "x"
+		true
+	elsif array[9].to_i == sum
+		true
+	else
+		false
+	end
+end
+
 
 
 
