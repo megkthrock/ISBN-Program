@@ -16,4 +16,9 @@ class Test_ISBN_Number <Minitest::Test
 		assert_equal(false, isbn_contains_all_digits?("1234567y"))
 		assert_equal(true, isbn_contains_all_digits?("87719586989"))
 	end
+
+	def test_isbn_10_digit_sum_mod_11
+		assert_equal(3, sum_of_10_digit_isbn("123"))
+		assert_equal(8, sum_of_10_digit_isbn("457126"))
+	end
 end

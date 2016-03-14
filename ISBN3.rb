@@ -32,6 +32,15 @@ def isbn_contains_all_digits?(isbn)
 	end
 end
 
+def sum_of_10_digit_isbn(isbn)
+	array = isbn.split("")
+	sum = 0
+	array.each_with_index do |value, position|
+		break if position == 9
+		sum += value.to_i * (position + 1)
+	end
+	sum = sum % 11
+end 
 
 
 
