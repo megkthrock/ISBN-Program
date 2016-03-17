@@ -38,6 +38,20 @@ class Test_ISBN_Number <Minitest::Test
 		assert_equal(false, isbn_13_check_digit_matches_sum?("4780470059028"))
 	end
 
+	def test_isbn_10_digit_is_valid?
+		assert_equal(true, valid_isbn_for_10_digits?("0-321-14653-0"))
+	end
+
+	def test_isbn_13_digit_is_valid?
+		assert_equal(true, valid_isbn_for_13_digits?("9780470059029"))
+	end
+
+	def test_if_any_10_or_13_digit_is_valid?
+		assert_equal(true, valid_isbn?("0-321-14653-0"))
+		assert_equal(true, valid_isbn?("9780470059029"))
+		assert_equal(true, valid_isbn?("877195869x"))
+		assert_equal(false, valid_isbn?("76854x785"))
+	end
 
 
 
