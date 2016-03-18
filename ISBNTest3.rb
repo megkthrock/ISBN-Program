@@ -39,7 +39,7 @@ class Test_ISBN_Number <Minitest::Test
 	end
 
 	def test_isbn_10_digit_is_valid?
-		assert_equal(true, valid_isbn_for_10_digits?("0-321-14653-0"))
+		assert_equal(true, valid_isbn_for_10_digits?("0321146530"))
 	end
 
 	def test_isbn_13_digit_is_valid?

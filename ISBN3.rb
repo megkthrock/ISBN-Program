@@ -11,8 +11,7 @@ def valid_isbn?(isbn)
 end
 
 def valid_isbn_for_10_digits?(isbn)
-   isbn_without_invalid_characters = eliminate_invalid_characters(isbn)
-   isbn_x_removed = remove_X_if_it_is_the_last_digit(isbn_without_invalid_characters)
+   isbn_x_removed = remove_X_if_it_is_the_last_digit(isbn)
    isbn_containing_only_digits = isbn_contains_all_digits?(isbn_x_removed)
    isbn_without_invalid_characters = add_X_back_to_isbn(isbn_x_removed)
    isbn_sum_of_10 = sum_of_10_digit_isbn(isbn_without_invalid_characters)
@@ -36,8 +35,7 @@ def eliminate_invalid_characters(isbn)
 end
 
 def remove_X_if_it_is_the_last_digit(isbn)
-   array = isbn.split("")
-   if isbn.length == 10 && array[9] == "X" || array[9] == "x"
+   if isbn.length == 10 && isbn[9].upcase == "X"
        isbn.slice!(9)
        isbn
    else
@@ -46,8 +44,8 @@ def remove_X_if_it_is_the_last_digit(isbn)
 end
 
 def add_X_back_to_isbn(isbn)
-   if isbn.length == 9
-       isbn.push("X")
+  if isbn.length == 9
+       isbn + "X"
    else 
        isbn
    end
